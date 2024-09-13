@@ -3,22 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1awyeqber6j3"
-path="res://.godot/imported/towerDefense_tile180.png-36971e91b76227737f2d2b9221266d3e.ctex"
+path="res://.godot/imported/towerDefense_tile180.png-7a03264fbddaa242f6edcadb666b5af4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tower-defense-top-down/PNG/Default size/towerDefense_tile180.png"
-dest_files=["res://.godot/imported/towerDefense_tile180.png-36971e91b76227737f2d2b9221266d3e.ctex"]
+source_file="res://Default size/towerDefense_tile180.png"
+dest_files=["res://.godot/imported/towerDefense_tile180.png-7a03264fbddaa242f6edcadb666b5af4.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

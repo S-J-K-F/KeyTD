@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bccs1y3ooiati"]
+
+[ext_resource type="Texture2D" uid="uid://cvhb2ksvhd55d" path="res://Tilesheet/towerDefense_tilesheet.png" id="1_17rpp"]
+
+[node name="TileSheet" type="Sprite2D"]
+texture = ExtResource("1_17rpp")
