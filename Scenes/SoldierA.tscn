@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://5yff43yjln7f"]
+
+[ext_resource type="Texture2D" uid="uid://dbfspariweuj2" path="res://Default size/towerDefense_tile245.png" id="1_tmoma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkc7d"]
+
+[node name="Soldier A" type="CharacterBody2D"]
+
+[node name="TowerDefenseTile245" type="Sprite2D" parent="."]
+texture = ExtResource("1_tmoma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qkc7d")
