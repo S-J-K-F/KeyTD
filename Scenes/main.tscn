@@ -26,5 +26,6 @@ curve = SubResource("Curve2D_1ki5y")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="PathSpawner/Path2D"]
 position = Vector2(64, 160)
+loop = false
 
 [node name="Soldier A" parent="PathSpawner/Path2D/PathFollow2D" instance=ExtResource("2_q2n58")]
