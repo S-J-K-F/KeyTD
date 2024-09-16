@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4ftqsnsjexii"]
+[gd_scene load_steps=4 format=3 uid="uid://c4ftqsnsjexii"]
 
 [ext_resource type="PackedScene" uid="uid://bq6fdp4q05acr" path="res://Scenes/tile_map.tscn" id="1_slv2y"]
+[ext_resource type="PackedScene" uid="uid://5yff43yjln7f" path="res://Scenes/SoldierA.tscn" id="2_q2n58"]
+
+[sub_resource type="Curve2D" id="Curve2D_1ki5y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 64, 160, 0, 0, 0, 0, 232, 160, 0, 0, 0, 0, 328, 168, 0, 0, 0, 0, 344, 192, 0, 0, 0, 0, 352, 256, 0, 0, 0, 0, 352, 336, 0, 0, 0, 0, 352, 400, 0, 0, 0, 0, 360, 424, 0, 0, 0, 0, 384, 432, 0, 0, 0, 0, 408, 432, 0, 0, 0, 0, 448, 424, 0, 0, 0, 0, 496, 424, 0, 0, 0, 0, 536, 424, 0, 0, 0, 0, 584, 424, 0, 0, 0, 0, 624, 416, 0, 0, 0, 0, 664, 408, 0, 0, 0, 0, 664, 376, 0, 0, 0, 0, 664, 344, 0, 0, 0, 0, 664, 304, 0, 0, 0, 0, 664, 272, 0, 0, 0, 0, 664, 240, 0, 0, 0, 0, 664, 224, 0, 0, 0, 0, 656, 216, 0, 0, 0, 0, 640, 208, 0, 0, 0, 0, 608, 208, 0, 0, 0, 0, 576, 208, 0, 0, 0, 0, 536, 200, 0, 0, 0, 0, 472, 208, 0, 0, 0, 0, 408, 216, 0, 0, 0, 0, 376, 216, 0, 0, 0, 0, 376, 272, 0, 0, 0, 0, 368, 304, 0, 0, 0, 0, 368, 368, 0, 0, 0, 0, 400, 392, 0, 0, 0, 0, 448, 400, 0, 0, 0, 0, 480, 400, 0, 0, 0, 0, 520, 400, 0, 0, 0, 0, 560, 400, 0, 0, 0, 0, 608, 400, 0, 0, 0, 0, 632, 400, 0, 0, 0, 0, 648, 424, 0, 0, 0, 0, 664, 448, 0, 0, 0, 0, 664, 480, 0, 0, 0, 0, 672, 512, 0, 0, 0, 0, 672, 544, 0, 0, 0, 0, 680, 568, 0, 0, 0, 0, 712, 592, 0, 0, 0, 0, 728, 608, 0, 0, 0, 0, 744, 608, 0, 0, 0, 0, 768, 608, 0, 0, 0, 0, 832, 608, 0, 0, 0, 0, 888, 616, 0, 0, 0, 0, 952, 616, 0, 0, 0, 0, 1000, 616, 0, 0, 0, 0, 1048, 616, 0, 0, 0, 0, 1096, 616, 0, 0, 0, 0, 1152, 616, 0, 0, 0, 0, 1216, 616, 0, 0, 0, 0, 1296, 616, 0, 0, 0, 0, 1360, 616, 0, 0, 0, 0, 1408, 616)
+}
+point_count = 61
 
 [node name="Main" type="Node2D"]
 
@@ -11,3 +18,13 @@ position = Vector2(320, 320)
 position = Vector2(736, 392)
 zoom = Vector2(1.6, 1.6)
 editor_draw_limits = true
+
+[node name="PathSpawner" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="PathSpawner"]
+curve = SubResource("Curve2D_1ki5y")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathSpawner/Path2D"]
+position = Vector2(64, 160)
+
+[node name="Soldier A" parent="PathSpawner/Path2D/PathFollow2D" instance=ExtResource("2_q2n58")]
