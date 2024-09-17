@@ -9,6 +9,9 @@
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(256, -320)
 
+[node name="TowerDefenseTile250" type="Sprite2D" parent="."]
+texture = ExtResource("1_8ab1g")
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(256, -320)
 
@@ -16,6 +19,3 @@ position = Vector2(256, -320)
 position = Vector2(-256, 320)
 
 [node name="Node" type="Node" parent="."]
-
-[node name="TowerDefenseTile250" type="Sprite2D" parent="."]
-texture = ExtResource("1_8ab1g")
