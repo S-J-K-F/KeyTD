@@ -3,3 +3,4 @@
 # 9/16 - Created the main map. Created the path. Created enemy that follows path.
 # 9/17 - Touched up the map. Added enemys going through the map. Started making a tower.
 # 9/18 - Finished the map. Continued creating the tower. Updated the enemy pathing.
+# 9/20 - Changed some sprites. Revamped enemy pathing. Continued the firing of bullets code. 35:35
