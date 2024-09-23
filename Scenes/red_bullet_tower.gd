@@ -11,12 +11,14 @@ var curr
 
 
 func _on_tower_body_entered(body):
-	if "Solider A" in body.name:
+	if "SoldierA" in body.name:
+		print("found an enemy")
 		var tempArray = []
 		currTargets = get_node("Tower").get_overlapping_bodies()
+		print(currTargets.length())
 
 		for i in currTargets:
-			if "Solider" in i.name:
+			if "Soldier" in i.name:
 				tempArray.append(i)
 		var currTarget = null
 
@@ -36,7 +38,6 @@ func _on_tower_body_entered(body):
 		tempBullet.bulletDamage = bulletDamage
 		get_node("BulletContainer").add_child(tempBullet)
 		tempBullet.global_position = $Aim.global_position
-
 
 func _on_tower_body_exited(body):
 	pass # Replace with function body.
