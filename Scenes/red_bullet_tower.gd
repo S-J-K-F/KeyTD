@@ -7,15 +7,15 @@ var pathName
 var currTargets = []
 var curr
 
-
+func _process(delta):
+	if is_instance_valid(curr):
+		self.look_at(curr.global_position)
 
 
 func _on_tower_body_entered(body):
-	if "SoldierA" in body.name:
-		print("found an enemy")
+	if "Soldier A" in body.name:
 		var tempArray = []
 		currTargets = get_node("Tower").get_overlapping_bodies()
-		print(currTargets.length())
 
 		for i in currTargets:
 			if "Soldier" in i.name:
@@ -40,4 +40,4 @@ func _on_tower_body_entered(body):
 		tempBullet.global_position = $Aim.global_position
 
 func _on_tower_body_exited(body):
-	pass # Replace with function body.
+	currTargets = get_node("Tower").get_overlapping_bodies()
