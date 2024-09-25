@@ -10,7 +10,10 @@ var curr
 func _process(delta):
 	if is_instance_valid(curr):
 		self.look_at(curr.global_position)
-
+	else:
+		for i in get_node("BulletContainer").get_child_count():
+			get_node("BulletContainer").get_child(i).queue_free()
+			
 
 func _on_tower_body_entered(body):
 	if "Soldier A" in body.name:
