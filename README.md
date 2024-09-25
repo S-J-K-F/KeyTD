@@ -6,3 +6,4 @@
 # 9/20 - Changed some sprites. Revamped enemy pathing. Continued the firing of bullets code. 35:35
 # 9/23 - Almost have the shooting done 38:41
 # 9/24 - Rockets now shoot and enemys die 40:23
+# 9/25 - Rocket shooting is complete. Tower UI in progress 50:07
