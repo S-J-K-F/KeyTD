@@ -5,11 +5,13 @@
 
 [node name="RedTowerPanel" type="Panel"]
 custom_minimum_size = Vector2(80, 80)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 80.0
+offset_bottom = 80.0
 script = ExtResource("1_lonke")
 
 [node name="TowerDefenseTile250" type="Sprite2D" parent="."]
-position = Vector2(40, 40)
-scale = Vector2(1.25, 1.266)
+position = Vector2(40, 39)
+scale = Vector2(1, 1.008)
 texture = ExtResource("2_062v1")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
