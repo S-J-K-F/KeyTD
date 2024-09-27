@@ -12,9 +12,9 @@ offset_bottom = 893.0
 
 [node name="FlowContainer" type="FlowContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 42.0
 offset_top = 24.0
-offset_right = 135.0
+offset_right = 122.0
 offset_bottom = 288.0
 scale = Vector2(3, 3)
 theme_override_constants/h_separation = 10
