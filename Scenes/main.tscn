@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4ftqsnsjexii"]
+[gd_scene load_steps=4 format=3 uid="uid://c4ftqsnsjexii"]
 
 [ext_resource type="PackedScene" uid="uid://bq6fdp4q05acr" path="res://Scenes/tile_map.tscn" id="1_slv2y"]
 [ext_resource type="Script" path="res://Scenes/PathSpawner.gd" id="2_q5tnc"]
-[ext_resource type="PackedScene" uid="uid://bt7w1gbcklh8w" path="res://Scenes/red_bullet_tower.tscn" id="3_qpqy5"]
 [ext_resource type="PackedScene" uid="uid://b5fg43c5hl83v" path="res://Scenes/ui.tscn" id="4_pkex0"]
 
 [node name="Main" type="Node2D"]
@@ -17,9 +16,6 @@ script = ExtResource("2_q5tnc")
 autostart = true
 
 [node name="Towers" type="Node" parent="."]
-
-[node name="RedBulletTower" parent="Towers" instance=ExtResource("3_qpqy5")]
-position = Vector2(520, 536)
 
 [node name="UI" parent="." instance=ExtResource("4_pkex0")]
 
