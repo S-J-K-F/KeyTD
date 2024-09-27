@@ -7,4 +7,4 @@
 # 9/23 - Almost have the shooting done 38:41
 # 9/24 - Rockets now shoot and enemys die 40:23
 # 9/25 - Rocket shooting is complete. Tower UI in progress 50:07
-# 9/27 - Updated map. Udated pathing. Finish UI?
+# 9/27 - Updated map. Udated pathing. UI mostly done 1:01:38
