@@ -20,7 +20,7 @@ func _on_gui_input(event:InputEvent):
 		if get_child_count() > 1:
 			get_child(1).global_position = event.global_position
 
-			var mapPath = get_tree().get_root().get_node("Main/Tilemap")
+			var mapPath = get_tree().get_root().get_node("Main/TileMap")
 			var tile = mapPath.local_to_map(get_global_mouse_position())
 			currTile = mapPath.get_cell_atlas_coords(0, tile, false)
 			if (currTile == Vector2i(4,5)):
@@ -35,11 +35,12 @@ func _on_gui_input(event:InputEvent):
 		else:
 			if get_child_count() > 1:
 				get_child(1).queue_free()
-			var path = get_tree().get_root().get_node("Main/Towers")
+			if currTile == Vector2i(4,5):
+				var path = get_tree().get_root().get_node("Main/Towers")
 
-			path.add_child(tempTower)
-			tempTower.global_position = event.global_position
-			tempTower.get_node("Area").hide()
+				path.add_child(tempTower)
+				tempTower.global_position = event.global_position
+				tempTower.get_node("Area").hide()
 	else:
 		if get_child_count() > 1:
 			get_child(1).queue_free()
