@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt7w1gbcklh8w"]
+[gd_scene load_steps=7 format=3 uid="uid://bt7w1gbcklh8w"]
 
 [ext_resource type="Texture2D" uid="uid://c2mklvxtr2guy" path="res://Default size/towerDefense_tile250.png" id="1_8ab1g"]
 [ext_resource type="Script" path="res://Scenes/red_bullet_tower.gd" id="1_13pi3"]
@@ -15,6 +15,8 @@ corner_radius_top_left = 450
 corner_radius_top_right = 450
 corner_radius_bottom_right = 450
 corner_radius_bottom_left = 450
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfm6s"]
 
 [node name="RedBulletTower" type="StaticBody2D"]
 script = ExtResource("1_13pi3")
@@ -47,6 +49,16 @@ offset_top = -400.0
 offset_right = 400.0
 offset_bottom = 400.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0l8o5")
+
+[node name="Upgrade" type="Node" parent="."]
+
+[node name="Panel" type="Panel" parent="Upgrade"]
+offset_left = -572.0
+offset_top = 81.0
+offset_right = -5.0
+offset_bottom = 273.0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfm6s")
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
