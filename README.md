@@ -9,4 +9,4 @@
 # 9/25 - Rocket shooting is complete. Tower UI in progress 50:07
 # 9/27 - Updated map. Udated pathing. UI mostly done 1:01:38
 # 9/30 - UI is done. Placing restections is started. 1:09:52
-# 10/01 - Placement in the works and upgrading
+# 10/01 - Upgrading ui's looks and placement are done.
