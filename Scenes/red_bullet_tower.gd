@@ -6,6 +6,12 @@ var bulletDamage = 5
 var pathName
 var currTargets = []
 var curr
+var reload = 0
+var range = 400
+
+@onready var timer = get_node("Upgrade/ProgressBar/Timer")
+var startShooting = false
+
 
 func _process(delta):
 	if is_instance_valid(curr):
@@ -14,6 +20,12 @@ func _process(delta):
 		for i in get_node("BulletContainer").get_child_count():
 			get_node("BulletContainer").get_child(i).queue_free()
 			
+func Shoot():
+	var tempBullet = Bullet.instantiate()
+	tempBullet.pathName = pathName
+	tempBullet.bulletDamage = bulletDamage
+	get_node("BulletContainer").add_child(tempBullet)
+	tempBullet.global_position = $Aim.global_position
 
 func _on_tower_body_entered(body):
 	if "Soldier A" in body.name:
@@ -36,11 +48,7 @@ func _on_tower_body_entered(body):
 		curr = currTarget
 		pathName = currTarget.get_parent().name
 
-		var tempBullet = Bullet.instantiate()
-		tempBullet.pathName = pathName
-		tempBullet.bulletDamage = bulletDamage
-		get_node("BulletContainer").add_child(tempBullet)
-		tempBullet.global_position = $Aim.global_position
+		Shoot()
 
 func _on_tower_body_exited(body):
 	currTargets = get_node("Tower").get_overlapping_bodies()
@@ -54,3 +62,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				towerPath.get_child(i).get_node("Upgrade/Upgrade").hide()
 		get_node("Upgrade/Upgrade").visible = !get_node("Upgrade/Upgrade").visible
 		get_node("Upgrade/Upgrade").global_position = self.position + Vector2(-572,81)
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.
