@@ -10,3 +10,4 @@
 # 9/27 - Updated map. Udated pathing. UI mostly done 1:01:38
 # 9/30 - UI is done. Placing restections is started. 1:09:52
 # 10/01 - Upgrading ui's looks and placement are done. 1:21:47
+# 10/02 - Upgrading has more completed. Area placement colors are correct. Bullets go past towers. 01:26:41
