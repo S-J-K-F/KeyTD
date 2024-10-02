@@ -14,12 +14,15 @@ var startShooting = false
 
 
 func _process(delta):
+	get_node("Upgrade/ProgressBar").global_position = self.position + Vector2(-64,-81)
 	if is_instance_valid(curr):
 		self.look_at(curr.global_position)
+		if timer.is_stopped():
+			timer.start()
 	else:
 		for i in get_node("BulletContainer").get_child_count():
 			get_node("BulletContainer").get_child(i).queue_free()
-			
+	update_powers()
 func Shoot():
 	var tempBullet = Bullet.instantiate()
 	tempBullet.pathName = pathName
@@ -48,21 +51,49 @@ func _on_tower_body_entered(body):
 		curr = currTarget
 		pathName = currTarget.get_parent().name
 
-		Shoot()
+		
 
 func _on_tower_body_exited(body):
 	currTargets = get_node("Tower").get_overlapping_bodies()
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 	if event is InputEventMouseMotion and event.button_mask == 1:
 		var towerPath = get_tree().get_root().get_node("Main/Towers")
 		for i in towerPath.get_child_count():
 			if towerPath.get_child(i).name != self.name:
 				towerPath.get_child(i).get_node("Upgrade/Upgrade").hide()
 		get_node("Upgrade/Upgrade").visible = !get_node("Upgrade/Upgrade").visible
-		get_node("Upgrade/Upgrade").global_position = self.position + Vector2(-572,81)
+		get_node("Upgrade/Upgrade").global_position = self.position + Vector2(-270, 50)
 
 
-func _on_timer_timeout() -> void:
-	pass # Replace with function body.
+func _on_timer_timeout():
+	Shoot()
+
+
+func _on_range_pressed() -> void:
+	range += 30
+
+
+func _on_attack_speed_pressed() -> void:
+	if reload <= 2:
+		reload += 0.1
+	timer.wait_time = 3 - reload
+
+
+func _on_power_pressed() -> void:
+	bulletDamage += 1
+
+func update_powers():
+	get_node("Upgrade/Upgrade/HBoxContainer/Range/Label").text = str(range)
+	get_node("Upgrade/Upgrade/HBoxContainer/AttackSpeed/Label").text = str(3 - reload)
+	get_node("Upgrade/Upgrade/HBoxContainer/Power/Label").text = str(bulletDamage)
+	
+	get_node("Tower/CollisionShape2D").shape.radius = range
+	
+func _on_range_mouse_entered() -> void:
+	get_node("Tower/CollisionShape2D").show()
+
+
+func _on_range_mouse_exited() -> void:
+	get_node("Tower/CollisionShape2D").hide()
