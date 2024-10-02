@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bt7w1gbcklh8w"]
+[gd_scene load_steps=15 format=3 uid="uid://bt7w1gbcklh8w"]
 
 [ext_resource type="Texture2D" uid="uid://c2mklvxtr2guy" path="res://Default size/towerDefense_tile250.png" id="1_8ab1g"]
 [ext_resource type="Script" path="res://Scenes/red_bullet_tower.gd" id="1_13pi3"]
@@ -8,6 +8,21 @@ size = Vector2(211, 161)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d15ti"]
 radius = 400.0
+
+[sub_resource type="GDScript" id="GDScript_isorv"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	hide()
+
+func _draw():
+	var cen = Vector2(0,0)
+	var rad = get_parent().get_parent().range
+	var col = Color(1,0,0)
+	draw_circle(cen, rad, col)
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l8o5"]
 bg_color = Color(1, 0, 0, 1)
@@ -70,7 +85,26 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohkr1"]
+bg_color = Color(0.851729, 0.46039, 0.566411, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvytg"]
+bg_color = Color(0.387828, 0.67448, 0.479505, 1)
+
+[sub_resource type="GDScript" id="GDScript_7n6vp"]
+script/source = "extends ProgressBar
+
+
+# Called when the node enters the scene tree for the first time.
+func _process(delta):
+	self.max_value = get_node(\"Timer\").wait_time
+	self.value = get_node(\"Timer\").time_left
+	
+"
+
 [node name="RedBulletTower" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
 input_pickable = true
 script = ExtResource("1_13pi3")
 
@@ -92,6 +126,7 @@ position = Vector2(256, -320)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
 position = Vector2(-256, 320)
 shape = SubResource("CircleShape2D_d15ti")
+script = SubResource("GDScript_isorv")
 
 [node name="BulletContainer" type="Node" parent="."]
 
@@ -170,6 +205,21 @@ offset_right = 88.5
 offset_bottom = 154.5
 text = "10000"
 
+[node name="ProgressBar" type="ProgressBar" parent="Upgrade"]
+offset_left = -44.0
+offset_top = -76.0
+offset_right = 44.0
+offset_bottom = -52.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ohkr1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uvytg")
+value = 50.0
+show_percentage = false
+script = SubResource("GDScript_7n6vp")
+
+[node name="Timer" type="Timer" parent="Upgrade/ProgressBar"]
+wait_time = 3.0
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
+[connection signal="timeout" from="Upgrade/ProgressBar/Timer" to="." method="_on_timer_timeout"]
