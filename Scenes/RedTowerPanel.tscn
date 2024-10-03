@@ -14,4 +14,11 @@ position = Vector2(40, 39)
 scale = Vector2(1, 1.008)
 texture = ExtResource("2_062v1")
 
+[node name="Label" type="Label" parent="TowerDefenseTile250"]
+offset_left = -15.0
+offset_top = -2.97619
+offset_right = 25.0
+offset_bottom = 20.0238
+text = "$10"
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
