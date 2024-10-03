@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5fg43c5hl83v"]
+[gd_scene load_steps=4 format=3 uid="uid://b5fg43c5hl83v"]
 
 [ext_resource type="PackedScene" uid="uid://0jjye464p5p4" path="res://Scenes/RedTowerPanel.tscn" id="1_y6tmv"]
+
+[sub_resource type="GDScript" id="GDScript_3pc6q"]
+script/source = "extends Label
+
+
+func _process(delta: float) -> void:
+	self.text = \"Score: \" + str(Game.Score)
+"
+
+[sub_resource type="GDScript" id="GDScript_uxgy1"]
+script/source = "extends Label
+
+
+func _process(delta: float) -> void:
+	self.text = \"Gold: \" + str(Game.Gold)
+"
 
 [node name="UI" type="CanvasLayer"]
 
@@ -29,3 +45,21 @@ layout_mode = 2
 
 [node name="RedTowerPanel2" parent="Panel/FlowContainer" instance=ExtResource("1_y6tmv")]
 layout_mode = 2
+
+[node name="Health" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 672.0
+offset_right = 357.0
+offset_bottom = 809.0
+theme_override_font_sizes/font_size = 100
+text = "Health:"
+script = SubResource("GDScript_3pc6q")
+
+[node name="Gold" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 807.0
+offset_right = 259.0
+offset_bottom = 944.0
+theme_override_font_sizes/font_size = 100
+text = "Gold:"
+script = SubResource("GDScript_uxgy1")
