@@ -12,3 +12,4 @@
 # 10/01 - Upgrading ui's looks and placement are done. 1:21:47
 # 10/02 - Upgrading is completed. Area placement colors are corrected. Bullets go past towers. Shooting is on a timer. 01:35:17
 # 10/03 - Completed base game stuff (Finished the tutorial)
+# 10/04 - Added the extra towers.
