@@ -57,7 +57,7 @@ func _on_tower_body_exited(body):
 	currTargets = get_node("Tower").get_overlapping_bodies()
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseMotion and event.button_mask == 1:
 		var towerPath = get_tree().get_root().get_node("Main/Towers")
 		for i in towerPath.get_child_count():
@@ -72,7 +72,7 @@ func _on_timer_timeout():
 
 
 func _on_range_pressed() -> void:
-	range += 30
+		range += 30
 
 
 func _on_attack_speed_pressed() -> void:
@@ -82,7 +82,7 @@ func _on_attack_speed_pressed() -> void:
 
 
 func _on_power_pressed() -> void:
-	bulletDamage += 1
+		bulletDamage += 1
 
 func update_powers():
 	get_node("Upgrade/Upgrade/HBoxContainer/Range/Label").text = str(range)

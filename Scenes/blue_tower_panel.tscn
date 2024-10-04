@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbkcxft17t01n"]
+
+[ext_resource type="PackedScene" uid="uid://0jjye464p5p4" path="res://Scenes/RedTowerPanel.tscn" id="1_tb6lk"]
+[ext_resource type="Script" path="res://blue_tower_panel.gd" id="2_fg6kh"]
+[ext_resource type="Texture2D" uid="uid://bw0lnp46y3gfk" path="res://Default size/towerDefense_tile249.png" id="3_xrpen"]
+
+[node name="BlueTowerPanel" instance=ExtResource("1_tb6lk")]
+script = ExtResource("2_fg6kh")
+
+[node name="TowerDefenseTile250" parent="." index="0"]
+texture = ExtResource("3_xrpen")
+
+[node name="Label" parent="TowerDefenseTile250" index="0"]
+text = "$20"
